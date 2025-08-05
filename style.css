@@ -15,21 +15,8 @@ body {
     color: var(--primary);
     line-height: 1.65;
 }
-/* header {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background: var(--header-bg);
-    box-shadow: var(--header-shadow);
-    padding: 0 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 110px;
-    z-index: 100;
-} */
- header {
+
+header {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Changed from space-evenly */
@@ -44,6 +31,7 @@ body {
     z-index: 100;
     box-sizing: border-box; /* Added for better box model handling */
 }
+
 .logo-area {
     display: flex;
     align-items: center;
@@ -87,7 +75,6 @@ nav ul {
     margin: 0;
     padding: 0;
     align-items: center;
-    justify-content: space-evenly;
 }
 nav ul li a {
     color: var(--primary);
@@ -231,6 +218,29 @@ footer {
 .contact-list a:hover {
     text-decoration: underline;
 }
+
+/* Styling for the large group photo */
+.team-photo {
+    width: 90%; /* Makes the image responsive */
+    max-width: 800px; /* Prevents it from getting too large on big screens */
+    height: auto; /* Maintains the aspect ratio */
+    display: block;
+    margin-bottom: 50px; /* Adds space between the photo and the member grid */
+    border-radius: 15px; /* Adds rounded corners */
+    box-shadow: 0 4px 20px #00000055; /* Adds a subtle shadow */
+}
+
+/* Styling for the individual member photos */
+.member img {
+    width: 100px; /* Sets a fixed width */
+    height: 100px; /* Sets a fixed height */
+    border-radius: 50%; /* Makes the image a perfect circle */
+    object-fit: cover; /* Prevents the image from stretching or squishing */
+    margin-bottom: 15px; /* Adds space between the photo and the name */
+    border: 3px solid var(--accent); /* Adds a colored border */
+    box-shadow: 0 0 15px #00000066;
+}
+
 
 /* Responsive Navbar */
 @media (max-width: 900px) {
