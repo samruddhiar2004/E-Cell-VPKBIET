@@ -423,12 +423,12 @@ footer {
         order: 3;
         width: 100%;
     }
-
-    .nav-menu {
-        display: none;
-        flex-direction: row; /* KEY CHANGE: Sets menu direction to horizontal */
-        flex-wrap: wrap; /* KEY CHANGE: Allows items to wrap to the next line on very small screens */
-        justify-content: center; /* KEY CHANGE: Centers the group of menu items */
+    
+    /* ---- FIX STARTS HERE ---- */
+    /* Increased specificity to match the desktop rule */
+    nav .nav-menu {
+        display: none; /* Hides the menu by default on mobile */
+        flex-direction: column; /* Changed to column for better mobile layout */
         width: 100%;
         background: var(--bg-light);
         padding: 10px 0;
@@ -437,18 +437,21 @@ footer {
         align-items: center;
     }
     
-    .nav-menu.open {
-        display: flex;
+    /* Increased specificity to match the desktop rule */
+    nav .nav-menu.open {
+        display: flex; /* This class is added by JS to show the menu */
     }
+    /* ---- FIX ENDS HERE ---- */
 
     .nav-menu li {
-        width: auto; /* KEY CHANGE: Allows each item to have its natural width instead of 100% */
+        width: 90%; /* Give some width for better layout */
         text-align: center;
     }
 
     .nav-link {
         display: block;
-        padding: 10px 12px; /* Adjusted padding for a horizontal layout */
+        padding: 10px 12px;
+        width: 100%; /* Make link fill the list item */
     }
 
     .additional-logos {
