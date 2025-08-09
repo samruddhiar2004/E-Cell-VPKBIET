@@ -521,3 +521,35 @@ footer {
         font-size: 0.75rem;
     }
 }
+/* --- STYLES FOR EVENT ANNOUNCEMENT --- */
+.event-announcement {
+    margin: 25px 0;
+    padding: 15px;
+    background: rgba(255, 55, 179, 0.1);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    animation: subtleGlow 2.5s infinite alternate;
+}
+
+.event-date {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.event-status {
+    font-size: 1.05rem;
+    color: var(--primary-text);
+    margin-bottom: 0 !important; /* Overrides other paragraph margins */
+}
+
+@keyframes subtleGlow {
+    from {
+        box-shadow: 0 0 10px -5px var(--accent-glow);
+    }
+    to {
+        box-shadow: 0 0 20px 0px var(--accent-glow);
+    }
+}
