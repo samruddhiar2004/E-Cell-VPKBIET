@@ -1,3 +1,20 @@
+@font-face {
+    font-family: "gilroy";
+    src: url(../fonts/Weekend-BF6896069112561.ttf);
+}
+@font-face {
+    font-family: "memphis";
+    src: url(../fonts/Memphis\ River.otf);
+}
+@font-face {
+    font-family: "poster";
+    src: url(../fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+    font-family: "titled";
+    src: url(../fonts/Compass-Point-Demo.ttf);
+}
+
 :root {
     --primary-text: #e6edf3;
     --secondary-text: #a3a3b1;
