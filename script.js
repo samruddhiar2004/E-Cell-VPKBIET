@@ -27,10 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            // Fade in animation trigger
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
             }
 
+            // Active nav link highlighting
             const navLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
             if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
                 const currentActive = document.querySelector('.nav-link.active');
