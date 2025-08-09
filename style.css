@@ -136,6 +136,7 @@ nav .nav-link:hover, nav .nav-link.active {
     color: var(--accent);
     font-size: 2rem;
     cursor: pointer;
+    z-index: 1001; /* Ensure it's clickable */
 }
 
 /* --- HOME SECTION & MAIN LOGO --- */
@@ -144,7 +145,7 @@ section#home {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 80px; /* Default padding for fixed header */
     min-height: 100vh;
 }
 
@@ -175,7 +176,7 @@ section#home .section-box {
 
 /* --- SECTIONS & BOXES --- */
 main {
-    padding-top: 0; 
+    padding-top: 0; /* Changed dynamically for mobile */
 }
 
 section {
@@ -403,80 +404,62 @@ footer {
     }
 }
 
+
+/* ---- START: MOBILE FIX FOR 992px AND BELOW ---- */
 @media (max-width: 992px) {
-    /* ---- FIX STARTS HERE ---- */
     header {
-        position: relative; /* No longer fixed */
-        height: auto;
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px 15px;
-        gap: 15px; /* Adds space between logo container and nav */
-        border-bottom: 1px solid var(--border-color);
-        backdrop-filter: none; /* Remove blur as it's not floating */
-        background: var(--bg-dark); /* Solid background */
+        padding: 0 20px; /* Adjust padding for mobile */
+        height: 70px; /* Set a fixed height for the mobile header */
     }
 
-    .logo-container {
-        width: 100%;
-        justify-content: center;
+    main {
+        padding-top: 70px; /* Add padding to push content below the fixed header */
     }
 
-    /* Make logos visible and wrap them */
-    .additional-logos {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    nav {
-        order: 2; /* Ensure nav comes after logo-container */
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav .nav-menu {
+    /* Hide the partner logos on mobile for a cleaner look */
+    .additional-logos .small-logo {
         display: none;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+    }
+
+    /* --- MODIFIED FOR HORIZONTAL MENU --- */
+    nav .nav-menu {
+        display: none; /* Hide menu by default */
+        flex-direction: row; /* MODIFIED: Display items in a row */
+        flex-wrap: wrap; /* MODIFIED: Allow items to wrap to the next line */
+        justify-content: center; /* MODIFIED: Center the items */
+        position: absolute;
+        top: 70px; /* Position below the header */
+        left: 0;
         width: 100%;
-        background: var(--bg-light);
-        padding: 10px 0;
-        border-radius: 8px;
-        margin-top: 10px;
-        align-items: center;
+        background: rgba(13, 17, 23, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 10px; /* Adjusted padding */
+        border-bottom: 1px solid var(--border-color);
     }
     
+    /* Show menu when it has the .open class (toggled by JS) */
     nav .nav-menu.open {
         display: flex;
     }
 
+    /* Style individual links in the dropdown */
     .nav-menu li {
-        width: auto;
-        text-align: center;
+        width: auto; /* MODIFIED: Allow items to take their own width */
     }
-
     .nav-link {
         display: block;
-        padding: 10px 12px;
+        padding: 10px 15px; /* MODIFIED: Adjusted padding for horizontal items */
+        width: auto; /* MODIFIED: Allow links to take their own width */
     }
-    
-    /* Adjust Home section padding since header is not fixed */
-    section#home {
-        padding-top: 40px;
-        min-height: auto;
+    /* --- END OF MODIFICATIONS --- */
+
+
+    /* Display the hamburger toggle button */
+    .nav-toggle {
+        display: block;
     }
 
-    /* ---- FIX ENDS HERE ---- */
-    
+    /* General layout adjustments for smaller screens */
     section {
         min-height: auto;
         padding: 80px 15px;
@@ -486,6 +469,8 @@ footer {
         padding: 30px 25px;
     }
 }
+/* ---- END: MOBILE FIX ---- */
+
 
 @media (max-width: 480px) {
     h1 {
@@ -512,10 +497,10 @@ footer {
         width: 100%;
         max-width: none;
     }
-    .small-logo {
-        height: 35px; /* Adjust logo size for very small screens */
+    .ecell-text {
+        font-size: 1.4rem;
     }
-    .additional-logos {
-        gap: 10px; /* Further reduce gap */
+    .vpkbiet-text {
+        font-size: 0.75rem;
     }
 }
