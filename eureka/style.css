@@ -36,6 +36,8 @@ nav {
     display: flex;
     align-items: center;
     gap: 1.2rem;
+    /* This container will be used to group logos */
+    flex-grow: 1; /* Allows it to take up space */
 }
 
 .logo-section {
@@ -439,10 +441,13 @@ footer {
     nav {
         padding: 0.5rem 1rem;
         height: 80px;
+        /* Ensure logos and toggle are spaced out */
+        justify-content: space-between; 
     }
     
     .all-logos-container {
         gap: 0.5rem;
+        flex-grow: 0; /* Don't let it grow, just fit content */
     }
 
     .logo-section {
@@ -455,9 +460,14 @@ footer {
         height: 45px;
     }
 
-    /* Styles for the mobile navigation menu */
+    /* Hide desktop nav list by default */
     nav ul {
-        display: none; /* Hide by default */
+        display: none; 
+    }
+
+    /* Styles for the mobile navigation menu */
+    nav ul.mobile-open {
+        display: flex; /* Show when open */
         position: absolute;
         top: 80px; /* Position below the navbar */
         left: 0;
@@ -471,18 +481,14 @@ footer {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-    }
-    
-    /* Style for when the mobile menu is open */
-    nav ul.mobile-open {
-        display: flex;
+        gap: 0.5rem;
     }
 
-    nav ul li {
+    nav ul.mobile-open li {
         width: auto; /* Allow items to size naturally */
     }
 
-    nav ul a {
+    nav ul.mobile-open a {
         padding: 0.5rem 1rem; /* Adjust padding for horizontal items */
         display: inline-block;
         width: auto;
