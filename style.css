@@ -183,6 +183,7 @@ section#home .section-box {
     height: auto;
     filter: drop-shadow(0 0 20px var(--accent-glow));
     animation: bounceIn 1s ease-out;
+    margin-top: 40px;
 }
 
 @keyframes bounceIn {
